@@ -5,14 +5,14 @@ close all;
 %%%>>>>>>>> Input Variables
 
 %Knight Moves
-xMoves=1;
-yMoves=2;
+xMoves=3;
+yMoves=7;
 
-n=30; % size of board
+n=50; % size of board
 
 %position of the knight
-xPos=10;
-yPos=10;
+xPos=20;
+yPos=20;
 
 %declaring variables
 bi=zeros(n,n);
@@ -56,16 +56,24 @@ end
 %pat=[-2 -1;-2 1;2 -1;2 1;];
 
 %%%Applying pattern and getting possible moves
-[op,newPttern]=oneIteration(xPos,yPos,pat)
+
+[op,newPattern]=oneIteration(xPos,yPos,pat)
+
+[op,newPttern3]=oneIteration(xPos,yPos,newPattern)
 [rows,cols]=size(op);
 
 %%%>>>>>>>> Creating Output by changing value of moves
 for i=1:rows
-    if op(i,2)> 0 && op(i,1) >0
-        bi(op(i,2),op(i,1))=5; 
+    if ( op(i,2)> 0 && op(i,1) >0 )
+        if (op(i,2) <= n  && op(i,1) <= n)
+            bi(op(i,2),op(i,1))=5;             
+        end
+        
     end
 end
 bi(yPos,xPos)=4;
 
 imagesc(bi)
+
+
 
