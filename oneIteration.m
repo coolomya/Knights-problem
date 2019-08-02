@@ -1,4 +1,4 @@
-function result=oneIteration(xPosF,yPosF,patArrayF)
+function [result,patNew]=oneIteration(xPosF,yPosF,patArrayF)
     %%%>>>>>>>> Input Variables
 
 %%%>>>>>>>> Creating Board
@@ -35,4 +35,5 @@ end
         end
     end
     result=op;
+    patNew=[op(:,1)-xPos,op(:,2)-yPos];
 end
