@@ -16,16 +16,16 @@ end
     %pat=[-2 -1;-2 1;2 -1;2 1;];
 
     %%%Applying pattern and getting possible moves
-    op=patternApply(xPos,yPos,patArrayF)
+    op=patternApply(xPos,yPos,patArrayF);
     [rows,cols]=size(op);
     op2=op;
     
     %%%>>>>>>>> Creating Output by changing value of moves
     for i=1:rows
         if op(i,2)> 0 && op(i,1) >0
-            op2=patternApply(op(i,1),op(i,2),patArrayF)
+            op2=patternApply(op(i,1),op(i,2),patArrayF);
             op=[op;op2];
-            op=unique(op(:,1:2),'rows','stable')
+            op=unique(op(:,1:2),'rows','stable');
             %{ [rw,cl]=size(op);
             %for in=1:rw
             %    bi(op(in,2),op(in,1))=5; in

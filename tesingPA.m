@@ -8,11 +8,13 @@ close all;
 xMoves=3;
 yMoves=7;
 
-n=50; % size of board
+%Depth of layers aka possibilities after knight moves times
+moves=3;
+n=500; % size of board
 
 %position of the knight
-xPos=20;
-yPos=20;
+xPos=250;
+yPos=120;
 
 %declaring variables
 bi=zeros(n,n);
@@ -56,10 +58,12 @@ end
 %pat=[-2 -1;-2 1;2 -1;2 1;];
 
 %%%Applying pattern and getting possible moves
+[op,newPattern]=oneIteration(xPos,yPos,pat);
 
-[op,newPattern]=oneIteration(xPos,yPos,pat)
+for times=1:moves-1
+    [op,newPattern]=oneIteration(xPos,yPos,newPattern);
+end
 
-[op,newPttern3]=oneIteration(xPos,yPos,newPattern)
 [rows,cols]=size(op);
 
 %%%>>>>>>>> Creating Output by changing value of moves
